@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import * as cypress from "cypress" 
-import {Selectors} from "../support/supportingvar"
+import {Selectors} from "../support/selectors"
+
 const selSlob = new Selectors();
 
 Cypress.Commands.add( "openBaseUrl", ()=>{ 

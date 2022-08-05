@@ -1,10 +1,4 @@
 
-
-export const enum originDestination {
-    orig = '.route-selection-origin',
-    dest = '.route-selection-destination'
-}
-
 export class Selectors  {
     acepCookie  = '.col-lg-2 > .btn';
     ddmTypeClass = '.km-select-picker';
