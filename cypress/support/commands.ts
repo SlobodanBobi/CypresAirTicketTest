@@ -2,40 +2,37 @@
 
 import {Selectors} from "../support/selectors"
 
-const selSlob = new Selectors();
+const SelSlob = new Selectors();
 
 Cypress.Commands.add( "openBaseUrl", ()=>{ 
     cy.visit('/') 
-    //cy.visit('https://airmalta.com/en-mt')
     cy.on('uncaught:exception', (err, runnable) => {
         return false
     })    
     cy.url().should('contains', 'airmalta.com')
-    cy.get(selSlob.acepCookie).click()
+    cy.get(SelSlob.acepCookie).click()
 })
 
 // Select trip type and class 
 Cypress.Commands.add('selectTripTypeandClass', (tripType:string, tripClass:string) =>{
-    //cy.get(selSlob.ddmTypeClass).first().children().type(tripType)
-    cy.get(selSlob.ddmTypeClass).eq(0).type(tripType)
-    cy.get(selSlob.selTypeClass).contains(tripType).click()
-    //cy.get(selSlob.ddmTypeClass).last().children().type(tripClass)
-    cy.get(selSlob.ddmTypeClass).eq(1).type(tripClass)
-    cy.get(selSlob.selTypeClass).contains(tripClass).click()
+    cy.get(SelSlob.ddmTypeClass).eq(0).type(tripType)
+    cy.get(SelSlob.selTypeClass).contains(tripType).click()
+    cy.get(SelSlob.ddmTypeClass).eq(1).type(tripClass)
+    cy.get(SelSlob.selTypeClass).contains(tripClass).click()
 })
 
 // Select Airport (works for both directions)
 Cypress.Commands.add('selectAirport', (originDestination:string, airport: string) =>{
     cy.get(originDestination).children().first().type(airport)
-    cy.get(selSlob.selAirport).contains(airport).click()    
+    cy.get(SelSlob.selAirport).contains(airport).click()    
 })
 
 // Select date and search for flight
 Cypress.Commands.add('searchFlight', () =>{
-    cy.get(selSlob.selDay).click()
-    cy.get(selSlob.selToday).click({force: true})
+    cy.get(SelSlob.selDay).click()
+    cy.get(SelSlob.selToday).click({force: true})
     cy.intercept('POST', 'https://book.airmalta.com/api/flightSearch/itineraryPart').as('flightSearch')
-    cy.get(selSlob.selBtn).contains('Find flights').click()
+    cy.get(SelSlob.selBtn).contains('Find flights').click()
     cy.wait('@flightSearch').its('response.statusCode').should('be.equal', 200)
 })
 
