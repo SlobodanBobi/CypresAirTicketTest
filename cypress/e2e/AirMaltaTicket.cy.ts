@@ -2,7 +2,7 @@
 
 import {OriginDestination} from "../support/types"
 
-describe('AirMalta Airline', () => {
+describe('AirMalta Ticket test suite', () => {
     beforeEach( ()=>{
         cy.openBaseUrl()
     })
