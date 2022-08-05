@@ -12,9 +12,11 @@ The test is created in Cypress and written with Typescript
 steps for running the test:
 
 1. npm install
-2. npx cypress open or npm run cy:open
-3. run/exec  AirMaltaTicket.cy.ts
+2. npm install cypress
+3. npx cypress open or npm run cy:open
+4. run/exec  AirMaltaTicket.cy.ts
 
 or 
 1. npm install
-2. npm run cy:run
+2. npm install cypress
+3. npm run cy:run
