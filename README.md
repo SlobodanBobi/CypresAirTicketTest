@@ -3,7 +3,8 @@ Hello,
 This is a scenario for getting the first ticket price 
 from https://airmalta.com/en-mt
 Origin: Vienna; Destination: Malta
-the test is created with Cypress  
+
+The test is created with Cypress  
 written in Typescript
 # CypresAirTicketTest
 
